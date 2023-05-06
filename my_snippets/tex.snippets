@@ -1,0 +1,44 @@
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet item "item"
+\item $1
+endsnippet
+
+snippet title "Title"
+
+\documentclass{${1:article}}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb} 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+
+\title{$2}
+\author{Sunghyoun Kim}
+\date{`date +%F`}
+
+\begin{${3:document}}
+\maketitle
+$0
+\end{${3:document}}
+endsnippet
+
+snippet section "Section"
+\section{$1}
+$0
+endsnippet
+
+snippet dm "Math" w
+\[
+$1
+.\] 
+$0
+
+endsnippet
+
+snippet im "Inline Math" 
+\( $1 \) $0
+endsnippet

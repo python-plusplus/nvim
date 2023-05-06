@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/sunny/.config/nvim/.git'
+let g:netrw_dirhist_8='/home/sunny'
+let g:netrw_dirhist_7='/home/sunny/chordGen'
+let g:netrw_dirhist_6='/home/sunny/2023w/csc209'
+let g:netrw_dirhist_5='/home/sunny/2023w/csc209/kimsu134/a4'
+let g:netrw_dirhist_4='/home/sunny/2023w/csc209/kimsu134/lab10'
+let g:netrw_dirhist_3='/home/sunny/cp'
+let g:netrw_dirhist_2='/home/sunny/2023w/csc209/kimsu134/a3'
+let g:netrw_dirhist_1='/home/sunny/2023w/csc209/kimsu134/a3/handout_example'
+let g:netrw_dirhist_0='/home/sunny/2023w/csc209/kimsu134/lab7'

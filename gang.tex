@@ -1,0 +1,328 @@
+
+% Here is a file that illustrates most of the basic LaTeX commands and functionality
+% that you'll need for your assignments.
+% We're only presenting the basics here -- research online or ask us for more detailed
+% explanations and more powerful options.
+%
+% Author: David Liu
+% Date: July 25, 2020
+% Prepared for use in CSC110, Fall 2020, for the Department of Computer Science at
+% the University of Toronto, St. George campus.
+
+
+% ************************************************************************
+%                           READ ME FIRST
+%
+% This is just the source file -- reading this alone won't help you learn LaTeX.
+% To get started, jump down to line 98 and read the text there.
+% This will help you compile this file to get a pdf.
+% Then, you can jump back and forth between the source and the pdf to get an idea
+% about how to use LaTeX. For maximum understanding, make sure you read all the
+% comments in this file, and all of the text in the pdf.
+%
+% ************************************************************************
+
+
+% ************************************************************************
+% PREAMBLE (configuring the document that will be produced)
+% ************************************************************************
+
+% The most common document class is an article. This should suit your assignment needs.
+% We're using a larger font size (12pt) than normal.
+% It's helpful to have a larger font on assignments for your TAs in grading.
+\documentclass[12pt]{article}
+
+% Packages to use (think import statements in Python)
+\usepackage{amsmath}   % This one contains many standard tools. Always include.
+\usepackage{amsfonts}  % Fonts package.
+\usepackage{fancyhdr}  % Included to make headers (and footers, and margin text).
+\usepackage{hyperref}  % Included for hyperlinks. You shouldn't need this for your assignments.
+\usepackage{graphicx}  % Include only if you want to import images.
+\usepackage{framed}    % Include only if you want a "framed" environment.
+
+% LaTeX has many different parameters used to set margins.
+% Its default margins are quite wide, so here we're making them narrower.
+% Please do not make your assignment margins much narrower than this, though!
+% Too narrow and your text becomes much harder to read.
+\usepackage[margin=3cm, headheight=15pt]{geometry}
+
+% Define a header to appear on all pages.
+% Note that page numbers will appear automatically.
+\pagestyle{fancyplain}
+% The following lines are only to change the first page's header (change if you want to make a cover page).
+\fancypagestyle{plain}{
+\renewcommand{\headrulewidth}{0.4pt}
+}
+% Left side of header. First "Ima Student" is for the first page, the second is for every other page.
+\lhead{\fancyplain{Sunghyoun Kim}{Sunghyoun Kim}}
+% Right side of header
+\rhead{\fancyplain{An Introduction to \LaTeX}{An Introduction to \LaTeX}}
+
+% This is an OPTIONAL package that we've created for some custom commands.
+% If you want to use it, make sure you have the file csc.sty, and delete
+% the % on the line below.
+% \usepackage{csc}
+
+% This is metadata used to create a title.
+\title{An Introduction to \LaTeX}
+\author{Sunghyoun Kim}
+\date{July 25, 2020} 
+% ************************************************************************
+% DOCUMENT CONTENTS (the actual text that will be generated in the document).
+% ************************************************************************
+
+% This starts the document proper.
+% This is an example of an "environment," which always has a \begin{...}
+% and \end{...} (see the last line of the file).
+\begin{document}
+
+% Print the title.
+\maketitle
+
+% For longer pieces (e.g., course notes), it's helpful to divide up your work into sections.
+% Sections and subsections are automatically numbered.
+% For the remainder of this document, the actual text is all useful information!
+% Read the source and pdf files side by side to get a sense of what the commands actually do.
+\section{Introduction}
+This document is intended as a gentle introduction to some of the basic features in \LaTeX.
+Questions, comments, and error-finding are most welcome.
+
+% Notice how we typed "\LateX" instead of just LaTeX? The backslash introduces a macro (or command),
+% in this case, one that typesets the LateX logo nicely in the final document.
+% Below, you'll see us use {\LaTeX} (with additional curly braces around the macro).
+% This is required to ensure that LaTeX leaves a normal space following the macro --
+% we could also use "\LaTeX{}" or even "\LaTeX\ " (a backslash followed by a space)
+% when the macro is followed by text. When it is followed by any non-alphabetic character,
+% the braces or "\ " are not necessary.
+
+
+% ******************************************************************************
+%
+%                        FIRST TIME? START READING THIS!
+%
+% Here are some guidelines for getting started with LaTeX.
+Getting started with {\LaTeX} is very easy: either download some \LaTeX{} software
+(e.g., from here: \url{http://latex-project.org}),
+or use an online editor like \url{https://www.overleaf.com/}.
+
+What you've downloaded from the course webpage, sample\_latex.tex, is a \LaTeX\ source file (think Python .py file).
+Open it up in your chosen \LaTeX\ editor, and compile it using pdflatex.
+This is the equivalent of running a Python source file.
+The result is a new pdf file that contains a typeset version of your source file, based on the text and commands in the source file.
+Every time you change the source file, you must recompile using pdflatex to see the changes in the pdf.
+% ******************************************************************************
+
+
+% For assignments, it is *convenient* to have each question start on a separate page.
+\newpage
+
+
+\section{Basic Commands}
+\subsection{Text}
+Just start typing, and you'll produce a paragraph.
+Here is \emph{italics}, \textbf{bold}, and \texttt{monospace (code)}.
+For readability, you can type sentences on multiple lines in the source file, and they will show up in the same paragraph.
+
+Use a blank line to separate actual paragraphs. The first paragraph of a section is not indented, while the rest are.
+Here's a {\LaTeX} trick: use the forward quote key at the top-left of your keyboard to do beginning quotation marks, and the regular apostrophe key to do ending ones.
+Observe: Professor Liu is ``cool.''
+% It's also easy to add footnotes! Just in case you want to add extraneous or tangential information to your assignments.
+\footnote{Seriously.}
+
+\subsection{Math}
+Let's get to the good stuff! To make x=3 look nice, we use \emph{inline math mode} with \$ signs: $x = 3$.
+There, wasn't that nice?
+Here's some more math:
+% Notice the difference between x^2 for a single char exponent and y^{10} for multiple char exponents.
+$x^2 + y^{10} = -\pi \cdot \rho \circ \alpha / \frac{1124}{z_0}$
+Notice how that fraction at the end looks a little squished?
+Here's how to make math equations stand out a bit more, and given them some extra room:
+\[ \frac{1}{2} A^{Z^{ddd}} + \frac{B}{C} + D_{Y_{123}} = \sum_{i=1}^{10} \frac{1}{1 + \frac{1}{i}} \]
+And you can just keep on typing after that.
+Notice the use of (nested) superscripts and subscripts.
+
+Here's an example of using text while in math mode.
+\[ A = \{n \in \mathbb{N} \mid n \text{ has exactly 4 factors}\} \text{ is a set that I care deeply about.}\]
+
+There will be times that you might want to produce multiple equations down a page.
+Doing this with the \textbackslash [$\ldots$\textbackslash ] isn't great.
+A much better solution is the use the \textbf{align*} environment:
+% "&" is used as the alignment character. "\\" is used to start a new line.
+% You can play around with more than one alignment tab per line.
+\begin{align*}
+x^2 + 4x + 3 &= 0 \\     % Note the use of "\nonumber" and "\tag" below
+(x + 1)(x + 3) &= 0 \\
+x &= -1, -3 \tag{Eq. 1}  % No "\\" on last line!
+\end{align*}
+
+\newpage
+
+\section{Three Useful Environments}
+\subsection{Lists}
+Say you're doing an assignment and want to organize your solutions by question (this should be a goal...). One way to do this is the following:
+
+1. Here's my answer to question 1.
+
+2. So far so good, but then when my solution is really long and starts to run over the page width my numbering starts to blend together. And of course this is an assignment so I'm writing a lot of words, and it's getting to the point where a single paragraph is multiple lines long.
+
+This is especially troublesome when I want to have multiple paragraphs in my solution. Again, a good idea to prevent huge walls of text assaulting the markers.
+
+Here's another paragraph before my answer to question 3. Just because.
+
+3. Hey, here's my answer to number 3. Try not to miss it among all the paragraphs. Because there are a lot of paragraphs.
+
+While I could try to play around with indentation and margins, there is a much better way. Use the \textbf{enumerate} and \textbf{itemize} environments!
+
+\begin{enumerate}
+\item[1.] Wow, an ordered list!
+\item[2.] Wouldn't it be so meta to list out the reasons this environment is good?
+\item[3.] It can even do nested lists!
+	\begin{enumerate}
+	\item[(a)] For those pesky questions with multiple parts. We did change the numbering myself, though.
+	\item[(b)] There is a default numbering scheme. Try deleting the [] parts to see what happens.
+	\end{enumerate}
+\end{enumerate}
+
+\begin{itemize}
+\item Okay, an unordered list.
+\item Maybe less useful for assignments, but you never know.
+\item This also supports:
+	\begin{itemize}
+	\item nesting.
+	\end{itemize}
+\item And both list environments support all of the usual math stuff:
+\begin{align*}
+(x + y)^2 &= x^2 + 2xy + y^2 \\
+(x + y)(x - y) &= x^2 - y^2
+\end{align*}
+\end{itemize}
+
+\subsection{Tables}
+This environment is a bit rarer, and there are many options and more advanced environments you can use.
+
+Here we're killing \emph{three} birds with one stone:
+\begin{itemize}
+  \item showing you how a table works
+  \item giving you a list of symbols you might find useful as a reference
+  \item introducing the csc package, which provides easier to remember names for some of the commands
+\end{itemize}
+
+% Put some vertical space before the table.
+\vspace{5pt}
+
+\begin{tabular}{c c c}  % This specifies a table with 3 columns, all centred.
+
+% Table header. Notice the use of the alignment character "&" and newline "\\".
+Symbol & \LaTeX\ command & csc command \\
+
+% Draw a horizontal line
+\hline
+
+% The table rows.
+$\wedge$ & \textbackslash wedge & \textbackslash AND \\
+$\vee$ & \textbackslash vee & \textbackslash OR \\
+$\neg$ & \textbackslash neg & \textbackslash NOT \\
+$\Rightarrow$ & \textbackslash Rightarrow & \textbackslash IMP \\
+$\Leftrightarrow$ & \textbackslash Leftrightarrow & \textbackslash IFF \\
+$\forall$ & \textbackslash forall & N/A \\
+$\exists$ & \textbackslash exists & N/A \\
+$\in$ & \textbackslash in & \textbackslash IN \\ % The csc command adds a little extra space around the symbols.
+$\notin$ & \textbackslash notin & \textbackslash NOTIN \\
+$\sum_{i=0}^{n}$ & \textbackslash sum\_\{i=0\}\^\{n\} & N/A \\ % In display mode, the limits will be directly above/below the symbol.
+$\prod_{i=0}^{n}$ & \textbackslash prod\_\{i=0\}\^\{n\} & N/A \\
+$\to$ & \textbackslash to & N/A \\
+$\mathbb{N,Z,R}$ & \textbackslash mathbb\{N,Z,R\} & \textbackslash N, \textbackslash Z, \textbackslash R \\
+$\mathcal O$ & \textbackslash mathcal O & \textbackslash cO \\
+$\Omega$ & \textbackslash Omega & N/A \\   % Note: capital O - case matters!
+$\Theta$ & \textbackslash Theta & N/A      % Note: capital T
+% Note: no newline "\\" on the last line of a table.
+\end{tabular}
+
+% Put some vertical space after the table.
+\vspace{5pt}
+
+If we think of more symbols to add, we'll update this table.
+If you have any suggestions, please let us know!
+\newpage
+
+
+\section{Miscellaneous}
+This section will be updated as the term progresses, as ideas come to us, either from course staff or from you!
+
+\subsection{Images}
+This subsection shows how to import a basic image file into your document.
+It's also possible to use \LaTeX\ commands to draw an image directly,
+but we won't cover that here.
+Please note that the easiest way to import an image file is to put it in the same directory as your \LaTeX\ source file.
+
+% Wrapping the picture in a figure environment to include a caption.
+% The "h" argument puts the figure approximately in the same place
+% that where it occurs in the source file.
+\begin{figure}[h]
+\centering   % Centre the image
+% Uncomment the following line to include "myimage.jpg".
+%\includegraphics[width=100pt]{myimage.jpg} 		% You can specify the width (and more!) of the imported image.
+\caption{It's a tiny polar bear in a snowstorm.}
+\end{figure}
+
+
+\subsection{Algorithms}
+All of the code in this course will be written in Python style, though we will not strictly worry about the exact syntax.
+When you refer to functions, variables, or other code-related nouns in your text, you can use the command ``texttt'' to get a traditional monospace font.
+For example, in the code of \texttt{my\_function} below, the fourth line is \texttt{print(i)}. % Note that all underscores must be escaped by a backslash in LaTeX text.
+
+The easiest way to write code in \LaTeX\ is using the \textbf{verbatim} environment, provided you don't need to typeset math in your code.
+
+% The MOST IMPORTANT THING about the verbatim environment is that
+% all whitespace in the tex file gets translated directly to whitespace
+% in the pdf. However, you must use SPACES, NOT TABS.
+% Try to follow the convention 4 spaces = 1 tab.
+% Alternatively, try to find an editor that automatically replaces
+% tabs with spaces.
+\begin{verbatim}
+def my_function(n):
+    i = 1
+    while i < n:
+        print(i)
+        i = i + 1
+    print("Done!")
+\end{verbatim}
+\newpage
+
+\subsection{Structuring sections: headings and framed sections}
+
+When you're writing a longer proof, you may want ways of dividing up sections of your proof so that they're easier for both you and your reader to understand.
+One way to do this is to use section headers or text styling; we illustrate the latter below.
+
+\begin{quote}
+\underline{\textbf{Case 1:}} Assume \dots. We will prove \dots
+
+\emph{[Proof body for Case 1\dots]}
+
+\underline{\textbf{Case 2:}} Assume \dots. We will prove \dots
+
+\emph{[Proof body for Case 2\dots]}
+\end{quote}
+
+Another technique is to use the \texttt{framed} environment to put a box around a part of a proof.
+For example:
+
+\begin{framed}
+  Here is some text that has been framed.
+  You could put a part of a proof in here to make it as separate from the other sections of your proof.
+\end{framed}
+
+% These links are also available on the course webpage.
+\section{Resources}
+\begin{itemize}
+\item An online \LaTeX\ editor (easiest to get started): \url{https://www.overleaf.com/}. Also lots of great tutorials on here!
+\item Download \LaTeX\ on the official \LaTeX\ webpage: \url{http://latex-project.org/}.
+\item A relatively comprehensive introduction to \LaTeX. \textbf{Highly recommended.} \\ \url{http://ctan.mirror.rafal.ca/info/lshort/english/lshort.pdf}.
+\item A \LaTeX\ wiki. Most Google searches lead here. \url{http://en.wikibooks.org/wiki/LaTeX}.
+\item An amazing application of machine learning. Use it to find commands based on the symbol. \url{http://detexify.kirelabs.org}.
+\item A graphical \LaTeX\ editor (must download software) \url{http://www.lyx.org/}.
+\end{itemize}
+
+
+% Don't forget to end the document environment.
+\end{document}
